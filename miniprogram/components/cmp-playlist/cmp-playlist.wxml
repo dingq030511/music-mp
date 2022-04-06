@@ -1,0 +1,5 @@
+<view class="play-wrap">
+  <image class="play-img" mode="aspectFill" src="{{playItem.picUrl}}"></image>
+  <text class="count">{{count}}</text>
+  <text class="name">{{playItem.name}}</text>
+</view>

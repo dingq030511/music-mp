@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "cmp-playlist": "/components/cmp-playlist/cmp-playlist"
+  },
+  "enablePullDownRefresh": true
+}

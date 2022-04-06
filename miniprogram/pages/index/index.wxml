@@ -1,0 +1,10 @@
+<swiper circular="{{true}}" autoplay="{{true}}" indicator-dots="{{true}}">
+  <swiper-item wx:for="{{swiperUrls}}" wx:key="url">
+    <image class="swiper-img" mode="widthFix" src="{{item.url}}"></image>
+  </swiper-item>
+</swiper>
+
+<view class="playlist-container">
+  <cmp-playlist bindtap="goToMusiclist" data-id="{{item.id}}" wx:for="{{playlist}}" playItem="{{item}}" wx:key="_id"></cmp-playlist>
+</view>
+<view wx:if="{{showNoMore}}" class="no-more">没有更多了~</view>

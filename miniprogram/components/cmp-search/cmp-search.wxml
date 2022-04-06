@@ -1,0 +1,6 @@
+<!--components/cmp-search/cmp-search.wxml-->
+<view class="container">
+<text class="iconfont icon-sousuo find"></text>
+<input type="text" class="bar" placeholder="{{placeholder}}" placeholder-class="ph-bar"></input>
+<button class="search">搜索</button>
+</view>

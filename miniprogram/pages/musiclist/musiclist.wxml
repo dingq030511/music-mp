@@ -1,0 +1,21 @@
+<view class="musiclist-container" style="background-image: url({{listInfo.coverImgUrl}})"></view>
+<view class="musiclist-mask"></view>
+<view class="musiclist-info">
+  <image src="{{listInfo.coverImgUrl}}" class="musiclist-img"></image>
+  <view class="musiclist-item">
+    <view class="musiclist-name">{{listInfo.name}}</view>
+  </view>
+</view>
+
+<view class="list-container">
+  <view wx:for="{{musiclist}}" wx:key="id" bindtap="selectMusic" data-id="{{item.id}}" class="music-item {{playingId===item.id? 'playing': ''}}">
+    <view class="music-index">{{index + 1}}</view>
+    <view class="music-info">
+      <view class="music-name">
+        {{item.name}}
+        <text class="music-alias">{{item.alia.length > 0? item.alia[0]: ''}}</text>
+      </view>
+      <view class="music-singer">{{item.ar[0].name}} - {{item.al.name}}</view>
+    </view>
+  </view>
+</view>

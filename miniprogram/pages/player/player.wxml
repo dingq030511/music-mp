@@ -1,0 +1,20 @@
+<view class="player-container" style="background-image: url({{musicDetail.al.picUrl}})"></view>
+<view class="player-mask"></view>
+<view class="player-info">
+  <view bindtap="toggleLyricShow" hidden="{{isLyricShow}}" class="player-disc {{isPlaying? 'play': ''}}">
+    <image mode="aspectFill" class="player-img rotation {{isPlaying? '':'rotation-paused'}}"
+      src="{{musicDetail.al.picUrl}}"></image>
+  </view>
+
+  <cmp-lyric id="lyric" bindtap="toggleLyricShow" hidden="{{!isLyricShow}}" lyric="{{lyric}}"></cmp-lyric>
+
+  <view class="progress-bar">
+    <cmp-progress isSameSong="{{isSameSong}}" bind:timeupdate="onTimeupdate"></cmp-progress>
+  </view>
+
+  <view class="control">
+    <text bindtap="onPrev" class="iconfont icon-shangyishoushangyige"></text>
+    <text bindtap="togglePlay" class="iconfont {{isPlaying? 'icon-zanting1' : 'icon-bofang1'}}"></text>
+    <text bindtap="onNext" class="iconfont icon-xiayigexiayishou"></text>
+  </view>
+</view>

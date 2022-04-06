@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="header">
+    <view class="publish-container">
+      <text class="iconfont icon-fabu"></text>
+    </view>
+    <view class="search-container">
+      <cmp-search iconfont="iconfont" icon-sousuo="icon-sousuo"></cmp-search>
+    </view>
+  </view>
+</view>

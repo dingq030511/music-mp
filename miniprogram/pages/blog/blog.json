@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "发现",
+  "usingComponents": {
+    "cmp-search": "/components/cmp-search/cmp-search"
+  }
+}

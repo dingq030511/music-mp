@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "cmp-progress": "/components/cmp-progress/cmp-progress",
+    "cmp-lyric": "/components/cmp-lyric/cmp-lyric"
+  }
+}

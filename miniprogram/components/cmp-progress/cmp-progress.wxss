@@ -1,0 +1,32 @@
+.container{
+  display: flex;
+  align-items: center;
+}
+
+.progress{
+  position: relative;
+  flex: 1;
+}
+
+.movable-area{
+  width: 100%;
+  height: 34rpx;
+  position: absolute;
+  bottom: -14rpx;
+  left: 0;
+}
+
+.progress-track{
+  width: 36rpx;
+  height: 36rpx;
+  background: #fefefe;
+  border-radius: 50%;
+}
+
+.time{
+  width: 64rpx;
+  color: #fff;
+  font-size: 24rpx;
+  padding: 0 20rpx;
+}
+
