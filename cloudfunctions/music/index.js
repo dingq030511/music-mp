@@ -4,7 +4,7 @@ const TcbRouter = require('tcb-router');
 const axios = require('axios');
 
 const BASE_URL = 'https://apis.imooc.com';
-const ICODE = 'icode=8A48F9E7227EDF44';
+const ICODE = 'icode=DD6292E141DCEEA1';
 
 cloud.init({
   env: cloud.DYNAMIC_CURRENT_ENV
