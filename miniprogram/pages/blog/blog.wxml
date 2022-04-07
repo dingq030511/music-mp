@@ -7,4 +7,6 @@
       <cmp-search iconfont="iconfont" icon-sousuo="icon-sousuo"></cmp-search>
     </view>
   </view>
+
+  <cmp-bottom-modal></cmp-bottom-modal>
 </view>
