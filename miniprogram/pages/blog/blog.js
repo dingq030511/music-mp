@@ -43,7 +43,7 @@ Page({
 
   async onPublish(){
     if(this.data.userInfo){
-      this.goPublishPage();
+      this.toBlogEditPage();
     } else {
       this.setData({
         modalShow: true,
@@ -52,11 +52,13 @@ Page({
   },
 
   onGetUserInfoSuccess(e){
-    this.goPublishPage();
+    this.toBlogEditPage();
   },
 
-  goPublishPage(){
-    console.log('publish');
+  toBlogEditPage(){
+    wx.navigateTo({
+      url: '/pages/blog-edit/blog-edit',
+    })
   },
 
   /**

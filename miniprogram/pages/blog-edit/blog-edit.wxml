@@ -1,0 +1,16 @@
+<view class="blog-edit-container">
+  <textarea bindinput="onInput" value="{{blogCotent}}" bindfocus="setFooterBottom" bindblur="setFooterBottom" auto-focus class="content" placeholder="分享新鲜事..." maxlength="200"></textarea>
+  <view class="image-list">
+    <view bindtap="onPreviewImage" data-img="{{item}}" wx:for="{{images}}" wx:key="*this" class="image-wrap">
+      <image class="image" src="{{item}}" mode="aspectFill"></image>
+      <text catchtap="onDelete" data-index="{{index}}" class="iconfont icon-shanchu1"></text>
+    </view>
+    <view wx:if="{{images.length < 9}}" bindtap="selectPhoto" class="image-wrap select-photo">
+      <text class="iconfont icon-jiahao"></text>
+    </view>
+  </view>
+</view>
+<view class="footer" style="bottom: {{footerBottom}}px;">
+  <text class="words-num">{{wordsNum}}</text>
+  <button bindtap="send" class="publish-btn">发布</button>
+</view>

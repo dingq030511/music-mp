@@ -1,0 +1,82 @@
+.blog-edit-container{
+  padding: 20rpx;
+}
+
+.content {
+  width: 100%;
+  height: 360rpx;
+  box-sizing: border-box;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx;
+  background: #f1f1f1;
+}
+
+.words-num {
+  flex: 1;
+  text-align: right;
+  color: #474747;
+  font-size: 32rpx;
+  padding-right: 30rpx;
+}
+
+.publish-btn {
+  width: 180rpx!important;
+  background: #d43c33;
+  color: #fff;
+  font-size: 24rpx!important;
+  margin-right: 20rpx;
+}
+
+.image-list{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+}
+
+.image-wrap {
+  width: 220rpx;
+  height: 220rpx;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  border: 1rpx dashed #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.image-wrap .icon-shanchu1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40rpx;
+  height: 40rpx;
+  background: #000;
+  opacity: 0.4;
+  color: #fff;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.image-wrap .icon-jiahao{
+  font-size: 48rpx;
+  color: #f1f1f1;
+}

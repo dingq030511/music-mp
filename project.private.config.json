@@ -1,6 +1,6 @@
 {
   "setting": {
-    "compileHotReLoad": true
+    "compileHotReLoad": false
   },
   "condition": {
     "miniprogram": {
@@ -20,6 +20,13 @@
         {
           "name": "发现",
           "pathName": "pages/blog/blog",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "博客编辑发布",
+          "pathName": "pages/blog-edit/blog-edit",
           "query": "",
           "launchMode": "default",
           "scene": null
