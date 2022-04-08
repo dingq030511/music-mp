@@ -1,6 +1,6 @@
 <view class="container">
   <view class="header">
-    <view class="publish-container">
+    <view bindtap="onPublish" class="publish-container">
       <text class="iconfont icon-fabu"></text>
     </view>
     <view class="search-container">
@@ -8,5 +8,5 @@
     </view>
   </view>
 
-  <cmp-bottom-modal></cmp-bottom-modal>
+  <cmp-login-modal show="{{modalShow}}" bind:getuserinfosuccess="onGetUserInfoSuccess" bind:close="onModalClose"></cmp-login-modal>
 </view>

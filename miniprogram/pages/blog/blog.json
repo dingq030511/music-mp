@@ -2,6 +2,6 @@
   "navigationBarTitleText": "发现",
   "usingComponents": {
     "cmp-search": "/components/cmp-search/cmp-search",
-    "cmp-bottom-modal": "/components/cmp-bottom-modal/cmp-bottom-modal"
+    "cmp-login-modal": "/components/cmp-login-modal/cmp-login-modal"
   }
 }

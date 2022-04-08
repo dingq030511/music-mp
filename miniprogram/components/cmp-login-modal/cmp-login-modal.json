@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "cmp-bottom-modal": "/components/cmp-bottom-modal/cmp-bottom-modal"
+  }
+}

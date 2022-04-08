@@ -1,6 +1,7 @@
-<view class="modal">
+<view wx:if="{{show}}" class="modal">
   <view class="panel">
-    <text class="iconfont icon-shanchu1"></text>
-    
+    <text class="iconfont icon-shanchu1" bindtap="closeModal"></text>
+    <slot name="header"></slot>
+    <slot name="body"></slot>
   </view>
 </view>

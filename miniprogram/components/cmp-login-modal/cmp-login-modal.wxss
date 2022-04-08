@@ -1,0 +1,12 @@
+.login-btn-wrap{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.login-btn{
+  font-size: 32rpx;
+  height: 80rpx;
+  background-color: #d43c33;
+  color: #fff;
+}

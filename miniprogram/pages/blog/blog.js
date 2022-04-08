@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    modalShow: false,
+    userInfo: null,
   },
 
   /**
@@ -26,7 +27,36 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    const userInfo = wx.getStorageSync('userInfo');
+    if(userInfo){
+      this.setData({
+        userInfo
+      });
+    }
+  },
 
+  onModalClose(){
+    this.setData({
+      modalShow: false,
+    });
+  },
+
+  async onPublish(){
+    if(this.data.userInfo){
+      this.goPublishPage();
+    } else {
+      this.setData({
+        modalShow: true,
+      });
+    }
+  },
+
+  onGetUserInfoSuccess(e){
+    this.goPublishPage();
+  },
+
+  goPublishPage(){
+    console.log('publish');
   },
 
   /**

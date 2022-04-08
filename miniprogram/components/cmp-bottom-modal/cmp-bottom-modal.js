@@ -4,11 +4,15 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    show: {
+      type: Boolean,
+      value: false
+    }
   },
 
   options: {
-    styleIsolation: 'apply-shared'
+    styleIsolation: 'apply-shared',
+    multipleSlots: true,
   },
 
   /**
@@ -22,6 +26,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    closeModal(){
+      this.triggerEvent('close');
+    }
   }
 })
