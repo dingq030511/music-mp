@@ -1,0 +1,1 @@
+<cmp-blog-card wx:if="{{blog}}" blog="{{blog}}"></cmp-blog-card>

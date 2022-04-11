@@ -2,6 +2,9 @@
   "navigationBarTitleText": "发现",
   "usingComponents": {
     "cmp-search": "/components/cmp-search/cmp-search",
-    "cmp-login-modal": "/components/cmp-login-modal/cmp-login-modal"
-  }
+    "cmp-login-modal": "/components/cmp-login-modal/cmp-login-modal",
+    "cmp-blog-card": "/components/cmp-blog-card/cmp-blog-card",
+    "cmp-blog-ctrl": "/components/cmp-blog-ctrl/cmp-blog-ctrl"
+  },
+  "enablePullDownRefresh": true
 }

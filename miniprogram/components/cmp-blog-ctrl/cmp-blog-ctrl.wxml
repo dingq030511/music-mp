@@ -1,0 +1,19 @@
+<view class="ctrl">
+  <view class="ctrl-item" bindtap="comment">
+    <text class="iconfont icon-pinglun icon"></text>
+    <text>评论</text>
+  </view>
+  <view class="ctrl-item share">
+    <text class="iconfont icon-fenxiang icon"></text>
+    <text>分享</text>
+  </view>
+</view>
+
+<cmp-login-modal show="{{loginShow}}" bind:close="closeModal" bind:getuserinfosuccess="onGetUserInfoSuccess" bind:getuserinfofail="onGetUserInfoFail"></cmp-login-modal>
+
+<cmp-bottom-modal bind:close="closeCommentModal" show="{{commentShow}}">
+  <view slot="body">
+    <textarea name="content" class="comment-content" placeholder="说点什么~" placeholder-class="comment-placeholder" bindinput="onInput" value="{{content}}" fixed="true"></textarea>
+    <button bindtap="onSend" class="send">发送</button>
+  </view>
+</cmp-bottom-modal>

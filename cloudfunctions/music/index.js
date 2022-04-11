@@ -11,7 +11,6 @@ cloud.init({
 })
 const db = cloud.database();
 const playlistCollection = db.collection('playlist');
-const logger = cloud.logger();
 // 云函数入口函数
 exports.main = async (event) => {
   const app = new TcbRouter({event});

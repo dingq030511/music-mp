@@ -1,4 +1,5 @@
 const IMG_COUNT_LIMIT = 9;
+const db = wx.cloud.database();
 Page({
 
   /**
@@ -9,6 +10,7 @@ Page({
     blogCotent: '',
     footerBottom: 0,
     images: [],
+    userInfo: null,
   },
 
   /**
@@ -29,7 +31,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    const userInfo = wx.getStorageSync('userInfo');
+    this.setData({
+      userInfo
+    });
   },
 
   onInput(e) {
@@ -87,15 +92,42 @@ Page({
         filePath: item,
       }));
     }
-    return Promise.all(tasks).then(results=>results.map(result=>result.fileID));
+    return Promise.all(tasks).then(results => results.map(result => result.fileID));
   },
 
   async send() {
+    if (!this.data.blogCotent.trim()) {
+      return wx.showModal({
+        content: '请输入博客内容'
+      });
+    }
     wx.showLoading({
       title: '发布中...',
     });
-    const fileIds = await this.uploadFiles();
-    // wx.cloud.
+    try {
+      const fileIds = await this.uploadFiles();
+      await db.collection('blog').add({
+        data: {
+          content: this.data.blogCotent,
+          images: fileIds,
+          nickName: this.data.userInfo.nickName,
+          avatarUrl: this.data.userInfo.avatarUrl,
+          createTime: db.serverDate()
+        }
+      });
+      wx.showToast({
+        title: '发布成功',
+        icon:  'success'
+      });
+      const channel = this.getOpenerEventChannel();
+      channel.emit('publish');
+      wx.navigateBack();
+    } catch (error) {
+      wx.showToast({
+        title: '发布失败',
+        icon: 'error',
+      });
+    }
     wx.hideLoading();
   },
 

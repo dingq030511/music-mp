@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "cmp-login-modal": "/components/cmp-login-modal/cmp-login-modal",
+    "cmp-bottom-modal": "/components/cmp-bottom-modal/cmp-bottom-modal"
+  }
+}

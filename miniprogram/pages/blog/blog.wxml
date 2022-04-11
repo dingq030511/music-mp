@@ -4,9 +4,16 @@
       <text class="iconfont icon-fabu"></text>
     </view>
     <view class="search-container">
-      <cmp-search iconfont="iconfont" icon-sousuo="icon-sousuo"></cmp-search>
+      <cmp-search bind:search="onSearch" iconfont="iconfont" icon-sousuo="icon-sousuo"></cmp-search>
     </view>
   </view>
 
-  <cmp-login-modal show="{{modalShow}}" bind:getuserinfosuccess="onGetUserInfoSuccess" bind:close="onModalClose"></cmp-login-modal>
+  <view class="blog-list">
+    <view class="blog-panel" wx:for="{{blogList}}" wx:key="_id">
+      <cmp-blog-card bindtap="goComment" data-blog-id="{{item._id}}" blog="{{item}}"></cmp-blog-card>
+      <cmp-blog-ctrl blogId="{{item._id}}" blogContent="{{item.content}}"></cmp-blog-ctrl>
+    </view>
+  </view>
+
+  <cmp-login-modal show="{{modalShow}}" bind:getuserinfosuccess="toBlogEditPage" bind:close="onModalClose"></cmp-login-modal>
 </view>

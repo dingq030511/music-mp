@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "cmp-blog-card": "/components/cmp-blog-card/cmp-blog-card"
+  }
+}

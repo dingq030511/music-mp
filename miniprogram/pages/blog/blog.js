@@ -7,20 +7,15 @@ Page({
   data: {
     modalShow: false,
     userInfo: null,
+    blogList: [],
+    total: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+    this.getBlogList();
   },
 
   /**
@@ -28,21 +23,21 @@ Page({
    */
   onShow: function () {
     const userInfo = wx.getStorageSync('userInfo');
-    if(userInfo){
+    if (userInfo) {
       this.setData({
         userInfo
       });
     }
   },
 
-  onModalClose(){
+  onModalClose() {
     this.setData({
       modalShow: false,
     });
   },
 
-  async onPublish(){
-    if(this.data.userInfo){
+  async onPublish() {
+    if (this.data.userInfo) {
       this.toBlogEditPage();
     } else {
       this.setData({
@@ -51,42 +46,72 @@ Page({
     }
   },
 
-  onGetUserInfoSuccess(e){
-    this.toBlogEditPage();
+  async getBlogList(keyword = '') {
+    wx.showLoading({
+      title: '加载中...',
+    });
+    const res = await wx.cloud.callFunction({
+      name: 'blog',
+      data: {
+        $url: 'blogList',
+        start: this.data.blogList.length,
+        pageSize: 10,
+        keyword
+      }
+    });
+    this.setData({
+      blogList: this.data.blogList.concat(res.result.list),
+      total: res.result.count
+    });
+    wx.hideLoading();
   },
 
-  toBlogEditPage(){
+  toBlogEditPage() {
     wx.navigateTo({
       url: '/pages/blog-edit/blog-edit',
+      events: {
+        publish:()=>{
+          this.onPullDownRefresh();
+        }
+      }
     })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  goComment(e) {
+    const dataset = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/blog-comment/blog-comment?blogId=${dataset.blogId}`,
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  onSearch(e){
+    this.setData({
+      total: 0,
+      blogList: [],
+    });
+    this.getBlogList(e.detail.keyword);
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
+  onPullDownRefresh: async function () {
+    this.setData({
+      total: 0,
+      blogList: [],
+    });
+    await this.getBlogList();
+    wx.stopPullDownRefresh();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (this.data.total !== 0 && this.data.blogList.length >= this.data.total) {
+      return;
+    }
+    this.getBlogList();
   },
 
   /**

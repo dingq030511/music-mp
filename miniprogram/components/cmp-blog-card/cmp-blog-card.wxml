@@ -1,0 +1,13 @@
+<view wx:if="{{blog}}" class="blog">
+  <view class="blog-title">
+    <image class="blog-portrait" src="{{blog.avatarUrl}}"></image>
+    <view class="blog-box">
+      <view class="blog-nickname">{{blog.nickName}}</view>
+      <view class="blog-time">{{createTime}}</view>
+    </view>
+  </view>
+  <view class="blog-content">{{blog.content}}</view>
+  <view class="blog-img">
+    <image catchtap="previewImg" data-img="{{item}}" class="img" wx:for="{{blog.images}}" wx:key="*this" src="{{item}}"></image>
+  </view>
+</view>
