@@ -9,6 +9,7 @@ Component({
   properties: {
     blogId: String,
     blogContent: String,
+    blog: Object
   },
 
   /**
@@ -145,6 +146,7 @@ Component({
       this.setData({
         commentShow: false,
       });
+      this.triggerEvent('commentsuccess');
     }
   }
 })

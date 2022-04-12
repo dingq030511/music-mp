@@ -3,10 +3,10 @@
     <text class="iconfont icon-pinglun icon"></text>
     <text>评论</text>
   </view>
-  <view class="ctrl-item share">
+  <button open-type="share" class="ctrl-item share-btn">
     <text class="iconfont icon-fenxiang icon"></text>
     <text>分享</text>
-  </view>
+  </button>
 </view>
 
 <cmp-login-modal show="{{loginShow}}" bind:close="closeModal" bind:getuserinfosuccess="onGetUserInfoSuccess" bind:getuserinfofail="onGetUserInfoFail"></cmp-login-modal>

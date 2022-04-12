@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "cmp-blog-card": "/components/cmp-blog-card/cmp-blog-card"
+    "cmp-blog-card": "/components/cmp-blog-card/cmp-blog-card",
+    "cmp-blog-ctrl": "/components/cmp-blog-ctrl/cmp-blog-ctrl"
   }
 }

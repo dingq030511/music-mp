@@ -65,7 +65,7 @@ exports.main = async (event, context) => {
     }
     const blogItem = list[0]
     const commentCount = await blogCommentCollection.count().then(res=>res.total);
-    const commnetRes = await blogCommentCollection.limit(commentCount).get();
+    const commnetRes = await blogCommentCollection.limit(commentCount).orderBy('createTime', 'desc').get();
     const detail = {
       blog: blogItem,
       commentList: commnetRes.data
