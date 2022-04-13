@@ -1,0 +1,4 @@
+<view class="blog-panel" wx:for="{{blogList}}" wx:key="_id">
+  <cmp-blog-card blog="{{item}}" bindtap="goComment" data-blog-id="{{item._id}}"></cmp-blog-card>
+  <cmp-blog-ctrl blogId="{{item._id}}" blog="{{item}}"></cmp-blog-ctrl>
+</view>

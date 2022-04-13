@@ -5,7 +5,7 @@
   <view class="tab">
     <view class="tab-item">评论列表</view>
   </view>
-  <view class="comment-list">
+  <view wx:if="{{commentList.length > 0}}" class="comment-list">
     <block wx:for="{{commentList}}" wx:key="_id">
       <view class="comment">
         <view class="comment-title">
@@ -16,6 +16,9 @@
         <view class="comment-time">{{item.createTime}}</view>
       </view>
     </block>
+  </view>
+  <view class="no-comment" wx:else>
+    暂无评论
   </view>
 </scroll-view>
 

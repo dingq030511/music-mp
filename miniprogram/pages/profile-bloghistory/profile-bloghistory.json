@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "我的发现",
+  "usingComponents": {
+    "cmp-blog-ctrl": "/components/cmp-blog-ctrl/cmp-blog-ctrl",
+    "cmp-blog-card": "/components/cmp-blog-card/cmp-blog-card"
+  }
+}

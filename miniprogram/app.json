@@ -1,24 +1,25 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/playlist/playlist",
     "pages/blog/blog",
     "pages/profile/profile",
     "pages/musiclist/musiclist",
     "pages/player/player",
     "pages/blog-edit/blog-edit",
-    "pages/blog-comment/blog-comment"
+    "pages/blog-comment/blog-comment",
+    "pages/profile-playhistory/profile-playhistory",
+    "pages/profile-bloghistory/profile-bloghistory"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#d43c43",
+    "navigationBarBackgroundColor": "#d43c33",
     "navigationBarTitleText": "DQ 云音乐",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#474747",
-    "selectedColor": "#d43c43",
+    "selectedColor": "#d43c33",
     "list": [
       {
         "pagePath": "pages/index/index",

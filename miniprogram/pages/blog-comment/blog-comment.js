@@ -60,7 +60,12 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage() {
-
+  onShareAppMessage: function (e) {
+    const blog = this.data.blog;
+    return {
+      title: blog.content,
+      path: `/pages/blog-comment/blog-comment?blogId=${blog._id}`,
+      imageUrl: blog.images[0]
+    }
   }
 })

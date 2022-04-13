@@ -50,7 +50,7 @@
   position: relative;
   overflow: hidden;
   text-align: center;
-  border: 1rpx dashed #f1f1f1;
+  border: 1px dashed #ccc;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,5 +78,5 @@
 
 .image-wrap .icon-jiahao{
   font-size: 48rpx;
-  color: #f1f1f1;
+  color: #ccc;
 }

@@ -1,3 +1,5 @@
+import { getOpenIdAndUnionId } from "./utils/utils";
+
 //app.js
 App({
   onLaunch: function () {
@@ -11,12 +13,19 @@ App({
         //   如不填则使用默认环境（第一个创建的环境）
         env: 'cloud1-6gnxke9271439b04',
         traceUser: true,
-      })
+      });
     }
-
     this.globalData = {
       musiclist: [],
-      playingId: null
+      playingId: -1,
+      openid: ''
     }
-  }
+    getOpenIdAndUnionId().then(res=>{
+      this.globalData.openid = res.openid;
+      const cache = wx.getStorageSync(res.openid);
+      if(!cache){
+        wx.setStorageSync(res.openid, []);
+      }
+    });
+  },
 })

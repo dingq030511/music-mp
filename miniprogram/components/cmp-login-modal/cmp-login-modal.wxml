@@ -1,5 +1,5 @@
 <cmp-bottom-modal show="{{show}}" bind:close="onCloseModal">
   <view class="login-btn-wrap" slot="body">
-    <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="login-btn">获取微信授权信息</button>
+    <button bindtap="onGetUserInfo" class="login-btn">获取微信授权信息</button>
   </view>
 </cmp-bottom-modal>

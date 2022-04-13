@@ -24,12 +24,21 @@ Component({
     onCloseModal(){
       this.triggerEvent('close');
     },
-    onGetUserInfo(e){
-      if(e.detail.userInfo){
-        this.triggerEvent('getuserinfosuccess', e.detail.userInfo);
-        wx.setStorageSync('userInfo', e.detail.userInfo);
-      } else {
-        this.triggerEvent('getuserinfofail', e.detail.errMsg);
+    async onGetUserInfo(){
+      try {
+        const res = await wx.getUserProfile({
+          desc: '获取用户头像和昵称',
+        })
+        console.log(res);
+        if(res.userInfo){
+          this.triggerEvent('getuserinfosuccess', res.userInfo);
+          wx.setStorageSync('userInfo', res.userInfo);
+        } else {
+          this.triggerEvent('getuserinfofail', res);
+        }
+      } catch(e){
+        console.log(e);
+        this.triggerEvent('getuserinfofail', e);
       }
       this.onCloseModal();
     }

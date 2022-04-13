@@ -28,7 +28,7 @@ Page({
     let isSameSong = String(id) === String(app.globalData.playingId)
     if(!isSameSong){
       backgroundAudioManager.stop();
-      app.globalData.playingId = id;
+      app.globalData.playingId = Number(id);
     } else {
       if(backgroundAudioManager.paused){
         backgroundAudioManager.play();
@@ -53,6 +53,19 @@ Page({
     }
     return musiclist.find(e => String(e.id) === String(id));
   }, 
+
+  savePlayHistory(){
+    const musicList = this.getMusicList();
+    const music = musicList.find(e => String(this.data.id) === String(e.id));
+    const openid = app.globalData.openid;
+    const history = wx.getStorageSync(openid);
+    const index = history.findIndex(e=>String(this.data.id) === String(e.id))
+    if(index > -1){
+      history.splice(index, 1);
+    }
+    history.unshift(music);
+    wx.setStorageSync(openid, history);
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -129,6 +142,7 @@ Page({
       backgroundAudioManager.coverImgUrl = this.data.musicDetail.al.picUrl;
       backgroundAudioManager.singer = this.data.musicDetail.ar[0].name;
       backgroundAudioManager.epname = this.data.musicDetail.al.name;
+      this.savePlayHistory(music);
     }
     this.setData({
       isPlaying: true
@@ -146,10 +160,7 @@ Page({
     }
   },
   onPrev(){
-    let musiclist = app.globalData.musiclist;
-    if (musiclist.length === 0) {
-      musiclist = wx.getStorageSync('musiclist') || [];
-    }
+    const musiclist = this.getMusicList();
     let index = musiclist.findIndex(e => String(this.data.id) === String(e.id));
     index--;
     if(index < 0){
@@ -158,16 +169,20 @@ Page({
     this.getMusicInfo(musiclist[index].id);
   },
   onNext(){
-    let musiclist = app.globalData.musiclist;
-    if (musiclist.length === 0) {
-      musiclist = wx.getStorageSync('musiclist') || [];
-    }
+    const musiclist = this.getMusicList();
     let index = musiclist.findIndex(e => String(this.data.id) === String(e.id));
     index++;
     if(index >= musiclist.length){
       index -= musiclist.length;
     }
     this.getMusicInfo(musiclist[index].id);
+  },
+  getMusicList(){
+    let musiclist = app.globalData.musiclist;
+    if (musiclist.length === 0) {
+      musiclist = wx.getStorageSync('musiclist') || [];
+    }
+    return musiclist;
   },
   bindBGMEvent(){
     backgroundAudioManager.onEnded(()=>{

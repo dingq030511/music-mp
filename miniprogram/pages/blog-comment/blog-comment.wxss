@@ -70,3 +70,9 @@
   left: 0;
   border-top: 2rpx solid rgba(0, 0, 0, 0.1);
 }
+
+.no-comment{
+  background: #fff;
+  text-align: center;
+  padding: 200rpx 0;
+}

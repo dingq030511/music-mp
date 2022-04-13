@@ -15,6 +15,7 @@ const logger = cloud.logger();
 
 // 云函数入口函数
 exports.main = async (event, context) => {
+  const wxContext = cloud.getWXContext();
   const app = new TcbRouter({
     event
   });
@@ -65,12 +66,25 @@ exports.main = async (event, context) => {
     }
     const blogItem = list[0]
     const commentCount = await blogCommentCollection.count().then(res=>res.total);
-    const commnetRes = await blogCommentCollection.limit(commentCount).orderBy('createTime', 'desc').get();
+    const commnetRes = await blogCommentCollection.where({
+      blogId: blogId 
+    }).limit(commentCount).orderBy('createTime', 'desc').get();
     const detail = {
       blog: blogItem,
       commentList: commnetRes.data
     };
     ctx.body = detail;
+  });
+
+  app.router('getListByOpenId', async (ctx, next)=>{
+    const total = await blogCollection.count().then(res=>res.total);
+    const res = await blogCollection.where({
+      _openid: wxContext.OPENID
+    }).skip(event.start).limit(event.pageSize).orderBy('createTime', 'desc').get().then(res=>res.data);
+    ctx.body = {
+      list: res,
+      total
+    };
   });
 
   return app.serve();

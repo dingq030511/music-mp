@@ -1,0 +1,1 @@
+<cmp-musiclist musiclist="{{playHistory}}"></cmp-musiclist>

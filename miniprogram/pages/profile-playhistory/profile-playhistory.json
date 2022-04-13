@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "最近播放",
   "usingComponents": {
     "cmp-musiclist": "/components/cmp-musiclist/cmp-musiclist"
   }

@@ -1,2 +1,26 @@
-<!--pages/profile/profile.wxml-->
-<text>pages/profile/profile.wxml</text>
+<view class="profile-header">
+  <block wx:if="{{userInfo}}">
+    <image mode="aspectFill" class="avatar" src="{{userInfo.avatarUrl}}"></image>
+    <view class="nick-name">{{userInfo.nickName}}</view>
+  </block>
+  <block wx:else="">
+    <view class="not-login">未登录</view>
+  </block>
+</view>
+
+<view class="nav">
+  <view class="nav-item">
+    <navigator hover-class="none" class="content" url="/pages/profile-playhistory/profile-playhistory">
+      <text class="iconfont icon-ziyuanldpi"></text>
+      <text class="text">最近播放</text>
+      <text class="iconfont icon-xiangyou"></text>
+    </navigator>
+  </view>
+  <view class="nav-item">
+    <navigator hover-class="none" class="content" url="/pages/profile-bloghistory/profile-bloghistory">
+      <text class="iconfont icon-shoucang"></text>
+      <text class="text">我的发现</text>
+      <text class="iconfont icon-xiangyou"></text>
+    </navigator>
+  </view>
+</view>

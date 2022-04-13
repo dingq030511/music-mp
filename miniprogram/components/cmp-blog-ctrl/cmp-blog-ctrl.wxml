@@ -3,7 +3,7 @@
     <text class="iconfont icon-pinglun icon"></text>
     <text>评论</text>
   </view>
-  <button open-type="share" class="ctrl-item share-btn">
+  <button open-type="share" class="ctrl-item share-btn" data-blog="{{blog}}">
     <text class="iconfont icon-fenxiang icon"></text>
     <text>分享</text>
   </button>

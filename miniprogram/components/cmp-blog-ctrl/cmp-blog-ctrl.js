@@ -50,13 +50,13 @@ Component({
     },
   
     async comment(){
-      const subRes =  await this.subscribeMsg();
-      if(!subRes){
-        return wx.showToast({
-          title: '请先订阅消息再进行评论',
-          icon: 'none'
-        })
-      }
+      // const subRes =  await this.subscribeMsg();
+      // if(!subRes){
+      //   return wx.showToast({
+      //     title: '请先订阅消息再进行评论',
+      //     icon: 'none'
+      //   })
+      // }
       if(!this.data.userInfo){
         this.setData({
           loginShow: true

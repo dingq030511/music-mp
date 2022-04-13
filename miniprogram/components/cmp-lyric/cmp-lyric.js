@@ -50,6 +50,12 @@ Component({
       return arr.filter(e => e).map(line => {
         reg.lastIndex = -1;
         const matches = line.match(/\[(.+)\]/);
+        if(!matches){
+          return {
+            time: 0,
+            lyric: line
+          }
+        }
         const time = this.parseTime(matches[1]);
         const lyric = line.replace(reg, '');
         return {

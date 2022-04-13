@@ -7,7 +7,6 @@ Page({
   data: {
     musiclist: [],
     listInfo: {},
-    playingId: null
   },
 
   /**
@@ -28,11 +27,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if(app.globalData.playingId){
-      this.setData({
-        playingId: Number(app.globalData.playingId)
-      });
-    }
   },
 
   /**
@@ -82,7 +76,6 @@ Page({
       }
     });
     wx.hideLoading();
-    console.log(result);
     const playlist = result.playlist
     this.setData({
       musiclist: playlist.tracks,
@@ -91,17 +84,5 @@ Page({
         name: playlist.name
       }
     });
-    app.globalData.musiclist = this.data.musiclist;
-    wx.setStorageSync('musiclist', this.data.musiclist)
   },
-  selectMusic(e){
-    const dataset = e.currentTarget.dataset;
-    const id = dataset.id;
-    this.setData({
-      playingId: id
-    });
-    wx.navigateTo({
-      url: '/pages/player/player?id='+id,
-    })
-  }
 })
